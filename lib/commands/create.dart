@@ -114,12 +114,11 @@ class CreateCommand extends Command {
     final gradleLines = gradle.readAsLinesSync();
     final newLinesGradle = <String>[];
     for (final line in gradleLines) {
-      if (line.contains('appName: "')) {
+      if (line.contains('appName: ')) {
         newLinesReadme.add(
           line.replaceFirst(
             'starter kit ipp',
             name
-                .replaceAll('_', ' ')
                 .split(' ')
                 .map((word) => word.capitalize())
                 .join(' '),
