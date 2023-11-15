@@ -119,6 +119,7 @@ class CreateCommand extends Command {
           line.replaceFirst(
             'starter kit ipp',
             name
+                .replaceAll('_', ' ')
                 .split(' ')
                 .map((word) => word.capitalize())
                 .join(' '),
