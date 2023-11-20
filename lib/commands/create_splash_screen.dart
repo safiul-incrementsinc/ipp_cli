@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:args/command_runner.dart';
 
-class ChangeAppNameCommand extends Command {
+class CreateNativeSplashCommand extends Command {
   @override
   String get description => "create native splash screen";
 
