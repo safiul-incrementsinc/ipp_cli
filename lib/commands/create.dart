@@ -75,26 +75,16 @@ class CreateCommand extends Command {
   void _setup(String name) {
     /// pubspec
     final pubspec = File('$name/pubspec.yaml');
-    final lines = pubspec.readAsLinesSync();
-    final newLines = <String>[];
-    for (final line in lines) {
+    final linesYaml = pubspec.readAsLinesSync();
+    final newLinesYaml = <String>[];
+    for (final line in linesYaml) {
       if (line.contains('name:')) {
-        newLines.add(line.replaceFirst('starter_kit_ipp', name));
-        newLines.add(
-          line.replaceFirst(
-            'starter kit ipp',
-            name
-                .replaceAll('_', ' ')
-                .split(' ')
-                .map((word) => word.capitalize())
-                .join(' '),
-          ),
-        );
+        newLinesYaml.add(line.replaceFirst('starter_kit_ipp', name));
       } else {
-        newLines.add(line);
+        newLinesYaml.add(line);
       }
     }
-    pubspec.writeAsStringSync(newLines.join('\n'));
+    pubspec.writeAsStringSync(newLinesYaml.join('\n'));
 
     /// readme
     final readme = File('$name/README.md');
