@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:args/command_runner.dart';
+import 'package:ipp_starter_kit/utils.dart';
 
 class ChangeAppNameCommand extends Command {
   @override
@@ -27,7 +29,11 @@ class ChangeAppNameCommand extends Command {
       print('Please specify a name');
       return null;
     }
-    final name = argResults!.rest.first;
+    String name = '';
+    for (final element in argResults!.rest) {
+      name = '$name$element ';
+    }
+    name = replaceCharAt(name, name.length - 1, '');
 
     /// app/gradle
     final gradle = File('$cwd/android/app/build.gradle');

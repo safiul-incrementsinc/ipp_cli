@@ -20,9 +20,15 @@ Future<String> getAppName() async {
   return name;
 }
 
+String replaceCharAt(String oldString, int index, String newChar) {
+  return oldString.substring(0, index) + newChar + oldString.substring(index + 1);
+}
+
 extension StringExtensions on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${substring(1)}";
   }
 }
+
+
 
