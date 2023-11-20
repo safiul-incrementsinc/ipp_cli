@@ -13,7 +13,7 @@ class CreateNativeSplashCommand extends Command {
   @override
   FutureOr? run() async {
     final cwd = Directory.current.path;
-    Process.runSync(
+    await Process.run(
       'flutter',
       [
         'pub',
@@ -25,21 +25,21 @@ class CreateNativeSplashCommand extends Command {
     );
     print('created main splash screen');
 
-    Process.runSync(
+    await Process.run(
       'flutter',
       ['pub', 'run', 'flutter_native_splash:create', '--flavor', 'production'],
       workingDirectory: cwd,
     );
     print('created production splash screen');
 
-    Process.runSync(
+    await Process.run(
       'flutter',
       ['pub', 'run', 'flutter_native_splash:create', '--flavor', 'development'],
       workingDirectory: cwd,
     );
     print('created development splash screen');
 
-    Process.runSync(
+    await Process.run(
       'flutter',
       ['pub', 'run', 'flutter_native_splash:create', '--flavor', 'staging'],
       workingDirectory: cwd,
