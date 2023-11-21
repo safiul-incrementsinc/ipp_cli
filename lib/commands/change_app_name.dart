@@ -50,6 +50,7 @@ class ChangeAppNameCommand extends Command {
               "[STG] $name",
             ),
           );
+          print('App Name Change for Staging to `[STG] $name`');
         } else if (match[1]!.contains('[DEV]')) {
           newLinesGradle.add(
             line.replaceFirst(
@@ -57,6 +58,7 @@ class ChangeAppNameCommand extends Command {
               "[DEV] $name",
             ),
           );
+          print('App Name Change for Development to `[DEV] $name`');
         } else {
           newLinesGradle.add(
             line.replaceFirst(
@@ -64,6 +66,7 @@ class ChangeAppNameCommand extends Command {
               name,
             ),
           );
+          print('App Name Change for Production to `$name`');
         }
       } else {
         newLinesGradle.add(line);
