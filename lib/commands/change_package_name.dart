@@ -22,6 +22,7 @@ class ChangePackageNameCommand extends Command {
 
   @override
   FutureOr? run() async {
+    print(_packageName);
     final cwd = Directory.current.path;
     await Process.run(
       'flutter',
