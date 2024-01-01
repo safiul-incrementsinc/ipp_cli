@@ -11,7 +11,7 @@ class ChangePackageNameCommand extends Command {
   String get name => 'change_package_Name';
   static const _packageName = 'package_name';
 
-  CreateCommand() {
+  ChangePackageNameCommand() {
     argParser.addOption(
       _packageName,
       abbr: 'p',
