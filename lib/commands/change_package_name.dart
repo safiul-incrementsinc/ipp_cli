@@ -26,8 +26,8 @@ class ChangePackageNameCommand extends Command {
       print('Please specify a package name');
       return null;
     }
-    _packageName = argResults![_packageName] as String;
-    print(_packageName);
+    final packageName = argResults!.rest.first;
+    print(packageName);
     final cwd = Directory.current.path;
     await Process.run(
       'flutter',
@@ -35,7 +35,7 @@ class ChangePackageNameCommand extends Command {
         'pub',
         'run',
         'change_app_package_name:main',
-        _packageName,
+        packageName,
       ],
       workingDirectory: cwd,
     );
